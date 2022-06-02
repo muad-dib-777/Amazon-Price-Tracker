@@ -74,10 +74,10 @@ def search_product_list():
             
             
             log = pd.DataFrame({'date': [now.replace('h',':').replace('m','')],
-                                'code': prods.code[x], # this code comes from the TRACKER_PRODUCTS file
+                                'code': prods.code[x], 
                                 'url': url,
                                 'title': title,
-                                'buy_below': prods.buy_below[x], # this price comes from the TRACKER_PRODUCTS file
+                                'buy_below': prods.buy_below[x], 
                                 'price': price,
                                })
             
@@ -90,7 +90,6 @@ def search_product_list():
     #Enter path to the search history file
     search_hist = pd.read_excel('D:\Amazon_Price_Tracker\Amazon_Price_Tracker_Code\Search_History.xlsx')
     final_df = pd.concat([search_hist, tracker_log], sort=False)
-    #final_df = search_hist.append(tracker_log, sort=False)
     final_df.to_excel('D:\Amazon_Price_Tracker\Amazon_Price_Tracker_Code\Search_History.xlsx', index=False)
 
     if len(list_of_items) > 0:
